@@ -1,0 +1,210 @@
+:root {
+    --primary-color: #5e35b1;
+    --secondary-color: #3949ab;
+    --accent-color: #7c4dff;
+    --text-color: #f5f5f5;
+    --background-color: #121212;
+    --lap-odd: #1e1e1e;
+    --lap-even: #252525;
+    --btn-hover: #7c4dff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    background-color: #5a06ed;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: white;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.stopwatch-display {
+    background-color: #252525;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.time-display {
+    font-size: 3.5rem;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.visual-timeline {
+    height: 8px;
+    background-color: #333;
+    border-radius: 4px;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+#timeline {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transition: width 0.1s linear;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-btn:hover {
+    background-color: var(--btn-hover);
+    transform: scale(1.05);
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+}
+
+.control-btn:disabled {
+    background-color: #333;
+    color: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.lap-section {
+    background-color: #252525;
+    border-radius: 15px;
+    padding: 1.5rem;
+}
+
+.lap-section h2 {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-weight: 300;
+    text-align: center;
+}
+
+.lap-container {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) #333;
+}
+
+.lap-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lap-container::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 4px;
+}
+
+.lap-container::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 4px;
+}
+
+.lap-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border-bottom: 1px solid #444;
+    margin-bottom: 0.5rem;
+    position: sticky;
+    top: 0;
+    background-color: #252525;
+}
+
+.lap-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    margin-bottom: 0.3rem;
+}
+
+.lap-item:nth-child(odd) {
+    background-color: var(--lap-odd);
+}
+
+.lap-item:nth-child(even) {
+    background-color: var(--lap-even);
+}
+
+.lap-item span {
+    text-align: center;
+}
+
+.no-laps {
+    text-align: center;
+    padding: 1rem;
+    color: #666;
+    font-style: italic;
+}
+
+@media (max-width: 500px) {
+    .time-display {
+        font-size: 2.5rem;
+    }
+    
+    .btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Animation for new lap */
+@keyframes highlight {
+    0% { background-color: var(--accent-color); }
+    100% { background-color: inherit; }
+}
+
+.new-lap {
+    animation: highlight 1s ease;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuncLexa Stopwatch</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><u><b>Funclexa Flow</b></u></h1>
+        <div class="stopwatch-display">
+            <div class="time-display">
+                <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>.<span id="milliseconds">00</span>
+            </div>
+            <div class="visual-timeline" id="timeline"></div>
+        </div>
+        
+        <div class="controls">
+            <button id="startBtn" class="btn control-btn">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="pauseBtn" class="btn control-btn" disabled>
+                <i class="fas fa-pause"></i>
+            </button>
+            <button id="resetBtn" class="btn control-btn">
+                <i class="fas fa-undo"></i>
+            </button>
+            <button id="lapBtn" class="btn control-btn">
+                <i class="fas fa-flag"></i>
+            </button>
+        </div>
+        
+        <div class="lap-section">
+            <h2>Lap Times</h2>
+            <div class="lap-container" id="lapContainer">
+                <div class="lap-header">
+                    <span>Lap</span>
+                    <span>Time</span>
+                    <span>Split</span>
+                </div>
+                <div class="no-laps">No laps recorded yet</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
